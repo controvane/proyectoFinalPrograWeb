@@ -10,9 +10,9 @@ class usuario{
 		$this->celular = array();//para listar en una tabla si es necesario		
 	}
 	public function nuevo_usuario($idUsuario.$nombre,$pass){//campos de la base de datos puede modificarse, funcion para agregar un nuevo celular	
-		$sql = "INSERT INTO usuario/*<--- nombre de la tabla*/ (/*Campo autoincrement id*/idUsuario, nombre, pass) VALUES (:idUsuario, :nombre, ;pass)";
+		$sql = "INSERT INTO usuario/*<--- nombre de la tabla*/ (/*Campo autoincrement id*/ nombre, pass) VALUES (:nombre, :pass)";
 		$resultado = $this->db->prepare($sql);
-		$resultado->execute(array(":idUsuario"=>$idUsuario, ":nombre"=>$nombre, ":pass"=>$pass));
+		$resultado->execute(array( ":nombre"=>$nombre, ":pass"=>$pass));
 	}
 	public function datos_usuario($nombre.$pass){//funcion para listar una tabla
 		$sql = "select * from usuario where nombre = :nombre && pass = :pass";
