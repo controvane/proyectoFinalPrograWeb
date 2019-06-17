@@ -1,29 +1,52 @@
 <?php
-class celular{
+require("conectar.php");
+class venta{
 	private $db;
-	private $celular;
+	private $venta;
 
 	public function __construct(){
 		require_once("Modelo/conectar.php");//conexion a la base de datos
 		$this->db = Conectar::conexion();
-		$this->celular = array();//para listar en una tabla si es necesario		
+		$this->venta = array();//para listar en una tabla si es necesario		
 	}
-	public function nuevo_celular($marca, $empresa, $cantidad, $precio){//campos de la base de datos puede modificarse, funcion para agregar un nuevo celular	
-		$sql = "INSERT INTO celulares/*<--- nombre de la tabla*/ (/*Campo autoincrement id*/marca, empresa, cantidad, precio) VALUES (:marca, :empresa, :cantidad, :precio)";
-		$resultado = $this->db->prepare($sql);
-		$resultado->execute(array(":marca"=>$marca, ":empresa"=>$empresa, ":cantidad"=>$cantidad, ":precio"=>$precio));
-	}
-	public function datos_celular(){//funcion para listar una tabla
-		$consulta = $this->db->query("select * from celulares");
+	public function datos_venta(){//funcion para listar una tabla
+		$consulta = $this->db->query("select * from ventas");
 		while($filas = $consulta->fetch(PDO::FETCH_ASSOC)){
-			$this->celular[] = $filas;
+			$this->venta[] = $filas;
 		}
-		return $this->celular;
+		return $this->venta;
+	}
+	public function datos_venta_fecha($fecha){//funcion para listar una tabla por fecha
+		$sql = "select * from celulare where fecha = :fecha";
+		$resultado = $this->db->prepare($sql);
+		$resultado->execute(array(":fecha" => $fecha));
+		while($filas = $resultado->fetch(PDO::FETCH_ASSOC)){
+			$this->venta[] = $filas;
+		}
+		return $this->venta;
+	}
+	public function datos_venta_nit($nit){//funcion para listar una tabla por fecha
+		$sql = "select * from celulare where nit = :nit";
+		$resultado = $this->db->prepare($sql);
+		$resultado->execute(array(":nit" => $nit));
+		while($filas = $resultado->fetch(PDO::FETCH_ASSOC)){
+			$this->venta[] = $filas;
+		}
+		return $this->venta;
+	}
+	public function datos_venta_apellido($ape){//funcion para listar una tabla por fecha
+		$sql = "select * from celulare where ape = :ape";
+		$resultado = $this->db->prepare($sql);
+		$resultado->execute(array(":ape" => $ape));
+		while($filas = $resultado->fetch(PDO::FETCH_ASSOC)){
+			$this->venta[] = $filas;
+		}
+		return $this->venta;
 	}
 	public function realizar_venta($celular/*id celular*/, $cantidad, $nit_cli, $ape_cli){
-		$sql = "INSERT INTO ventas(celular, cantidad, cliente, apellido) values(:celu, :cant, :cli, :ape)";
+		$sql = "INSERT INTO ventas(celular, cantidad, nit, apellido) values(:celu, :cant, :nit, :ape)";
 		$resultado = $this->db->prepare($sql);
-		$resultado->execute(array(":celu"=>$celular, ":cant"=>$cantidad, ":cli"=>$nit_cli, ":ape"=>$ape_cli));
+		$resultado->execute(array(":celu"=>$celular, ":cant"=>$cantidad, ":nit"=>$nit_cli, ":ape"=>$ape_cli));
 	}
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-require_once("Modelo/venta_modelo");//Archivo de ventas_modelo
+require_once("Modelo/celular_modelo");//Archivo de ventas_modelo
 $celu = new celular();
 if(isset($_POST["nuevo"])){/*id boton submit de agregar celular*/
 	//saco los valores de la vista de ventas
