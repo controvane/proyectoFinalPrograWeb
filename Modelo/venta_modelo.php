@@ -17,7 +17,7 @@ class venta{
 		return $this->venta;
 	}
 	public function datos_venta_fecha($fecha){//funcion para listar una tabla por fecha
-		$sql = "select * from celulare where fecha = :fecha";
+		$sql = "select * from ventas where fecha = :fecha";
 		$resultado = $this->db->prepare($sql);
 		$resultado->execute(array(":fecha" => $fecha));
 		while($filas = $resultado->fetch(PDO::FETCH_ASSOC)){
@@ -26,7 +26,7 @@ class venta{
 		return $this->venta;
 	}
 	public function datos_venta_nit($nit){//funcion para listar una tabla por fecha
-		$sql = "select * from celulare where nit = :nit";
+		$sql = "select * from ventas where nit = :nit";
 		$resultado = $this->db->prepare($sql);
 		$resultado->execute(array(":nit" => $nit));
 		while($filas = $resultado->fetch(PDO::FETCH_ASSOC)){
@@ -35,7 +35,7 @@ class venta{
 		return $this->venta;
 	}
 	public function datos_venta_apellido($ape){//funcion para listar una tabla por fecha
-		$sql = "select * from celulare where ape = :ape";
+		$sql = "select * from ventas where ape = :ape";
 		$resultado = $this->db->prepare($sql);
 		$resultado->execute(array(":ape" => $ape));
 		while($filas = $resultado->fetch(PDO::FETCH_ASSOC)){

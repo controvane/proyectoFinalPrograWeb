@@ -21,10 +21,5 @@ class celular{
 		}
 		return $this->celular;
 	}
-	public function realizar_venta($celular/*id celular*/, $cantidad, $nit_cli, $ape_cli){
-		$sql = "INSERT INTO ventas(celular, cantidad, cliente, apellido) values(:celu, :cant, :cli, :ape)";
-		$resultado = $this->db->prepare($sql);
-		$resultado->execute(array(":celu"=>$celular, ":cant"=>$cantidad, ":cli"=>$nit_cli, ":ape"=>$ape_cli));
-	}
 }
 ?>
