@@ -1,0 +1,83 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background: #34495e;
+	
+}
+.box1{
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: -1%;
+    left: 50%;
+    transform: translate(-50%,7.6%);
+    background: #191919;
+    text-align: center;
+}
+.box2{
+	width: 195%;
+    padding: 20px;
+	background: #2ecc71;
+	top: 1%;
+    left: 50%;
+    transform: translate(-49%,-40%);
+}
+.box2 input[type="text"]{
+	border: 0;
+	background: #FFFFFF;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #191919;
+	padding: 14px 10px;
+	width: 200px;
+	outline: none;
+	color: black;
+	border-radius: 24px;
+	transition: 0.25s;
+	top: 1%;
+    left: 50%;
+    transform: translate(210%,130%);
+	align-content: center;
+}
+.box2 input[type="submit"]{
+	border: 0;
+	background: #000000;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #34495e;
+	padding: 14px 40px;
+	width: 100px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
+	cursor: pointer;
+	top: 1%;
+    left: 50%;
+    transform: translate(640%,-10%);
+	align-content: center;
+}
+.box1 td{
+	color: white;
+}
+.box1 input[type="submit"]{
+	border: 0;
+	background: none;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #34495e;
+	padding: 14px 40px;
+	width: 100px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
+	cursor: pointer;
+}
+.box1 input[type="submit"]:hover{
+	background: #34495e;
+}

@@ -9,7 +9,7 @@ class usuario{
 		$this->db = Conectar::conexion();
 		$this->celular = array();//para listar en una tabla si es necesario		
 	}
-	public function nuevo_usuario($idUsuario.$nombre,$pass){//campos de la base de datos puede modificarse, funcion para agregar un nuevo celular	
+	public function nuevo_usuario($nombre,$pass){//campos de la base de datos puede modificarse, funcion para agregar un nuevo celular	
 		$sql = "INSERT INTO usuario/*<--- nombre de la tabla*/ (/*Campo autoincrement id*/ nombre, pass) VALUES (:nombre, :pass)";
 		$resultado = $this->db->prepare($sql);
 		$resultado->execute(array( ":nombre"=>$nombre, ":pass"=>$pass));
